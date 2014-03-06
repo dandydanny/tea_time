@@ -33,6 +33,11 @@ get '/user/:user_id' do
 end
 
 get '/dashboard' do
-  @teas = Tea.all
-  erb :dashboard
+  if current_user
+    @teas = Tea.all
+    erb :dashboard
+  else
+    @error = "Please login first."
+    erb :index
+  end
 end

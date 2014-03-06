@@ -10,25 +10,62 @@ $(document).ready(function() {
     $(this).closest("tr").css({backgroundColor: "darkgreen"}).delay(100).css({backgroundColor: "transparent"});
   });
 
-  $(".associate-button").click(function(event){
-  console.log("assoc clicked")
+    $("#create-form").submit(function(event){
 
-  var buttonElementId = $(this).attr('value');
+    console.log("create clicked");
+    event.preventDefault();
+
+    var teaName = $("#newtea-name").val();
+    var teaOpinion = $("#create-newtea-thoughts").val();
+
+    console.log(teaName);
+    console.log(teaOpinion);
+    $.ajax({
+      type: "POST",
+      url: "/add",
+      dataType: 'json',
+      data: {tea_name: teaName, opinion: teaOpinion},
+    }).done(function(msg) {
+      // $( "#tea-associations" ).append(
+      //   "<tr><td><a href=\"tea\\"+msg.tea_id+"\"><div class=\"table-cell-link\">"+msg.tea_name+"</div></a></td>" +
+      //   "<td>" + msg.opinion + "</td>" +
+      //   "<td><button class=\"edit-button\" id=\"edit-button-"+msg.tea_id+"\" value=\""+msg.tea_id+"\">Edit</button>" +
+      //   "<button class=\"dissociate-button\" id=\"dissociate-button-"+msg.tea_id+"\" value=\""+msg.tea_id+"\">Dissociate</button></td>"
+      // );
+    });
+  });
+
+  $("#associate-form").submit(function(event){
+
+    console.log("assoc clicked");
+    event.preventDefault();
+
+    var teaName = $("#tea-selection").val();
+    var teaOpinion = $("#associate-newtea-thoughts").val();
+
+    console.log(teaName);
+    console.log(teaOpinion);
     $.ajax({
       type: "POST",
       url: "/associate",
-      data: {tea_id: buttonElementId},
-    }).done(function() {
-      $( event.target ).closest( "tr" ).fadeOut();
+      dataType: 'json',
+      data: {tea_name: teaName, opinion: teaOpinion},
+    }).done(function(msg) {
+      $( "#tea-associations" ).append(
+        "<tr><td><a href=\"tea\\"+msg.tea_id+"\"><div class=\"table-cell-link\">"+msg.tea_name+"</div></a></td>" +
+        "<td>" + msg.opinion + "</td>" +
+        "<td><button class=\"edit-button\" id=\"edit-button-"+msg.tea_id+"\" value=\""+msg.tea_id+"\">Edit</button>" +
+        "<button class=\"dissociate-button\" id=\"dissociate-button-"+msg.tea_id+"\" value=\""+msg.tea_id+"\">Dissociate</button></td>"
+      );
     });
   });
 
   $(".dissociate-button").click(function(event){
-  var buttonElementId = $(this).attr('value');
+  var prefId = $(this).attr("value");
     $.ajax({
       type: "POST",
       url: "/dissociate",
-      data: {tea_id: buttonElementId},
+      data: {pref_id: prefId},
     }).done(function() {
       $( event.target ).closest( "tr" ).fadeOut();
     });

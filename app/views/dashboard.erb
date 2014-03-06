@@ -5,9 +5,9 @@
   <!-- Create teas -->
 
   <p>Tell us about that new tea you've tried:</p>
-  <form class="login-forms" id="login-form" action="/" method="POST">
+  <form class="login-forms" id="create-form">
     <input type="text" name="tea-name" placeholder="Tea Name" class="input-fields" id="newtea-name">
-    <input type="text" name="notes" placeholder="Your Thoughts" class="input-fields" id="newtea-thoughts">
+    <input type="text" name="notes" placeholder="Your Thoughts" class="input-fields" id="create-newtea-thoughts">
     <button type="submit" name="associate" id="add-associate-button">Add & Associate</button>
   </form>
   <button name="add-more" id="add-more-button">Add More</button>
@@ -15,13 +15,13 @@
   <!-- Associate (read teas, update / create join table records) -->
 
   <p>Try these teas that others have enjoyed (and leave comments):</p>
-    <form class="login-forms" id="login-form" action="/" method="POST">
-    <select>
+    <form class="login-forms" id="associate-form">
+    <select id="tea-selection">
       <% @teas.each do |tea| %>
-      <option value="<%= tea.name %>"><%= tea.name %></option>
+      <option id="option"><%= tea.name %></option>
       <% end %>
     </select>
-    <input type="text" name="notes" placeholder="Your Thoughts" class="input-fields" id="newtea-thoughts">
+    <input type="text" name="tea-opinion" placeholder="Your Thoughts" class="input-fields" id="associate-newtea-thoughts">
     <button type="submit" name="buttons" id="associate-button">Associate</button>
   </form>
 
@@ -29,7 +29,7 @@
 
   <p>Teas you've tried:</p>
 
-  <table>
+  <table id="tea-associations">
     <tr>
       <td>Tea Name</td>
       <td>Thoughts</td>
@@ -40,8 +40,8 @@
       <td class="tea-name-<%= pref.tea.id %>"><div class="table-cell-link"><a href="/tea/<%= pref.tea.id %>"><%= pref.tea.name %></a><div></td>
       <td class="tea-thoughts-<%= pref.tea.id %>"><%= pref.opinion %></td>
       <td>
-        <button class="edit-button" id="edit-button-<%= pref.tea.id %>" value="<%= pref.tea.id %>">Edit</button>
-        <button class="dissociate-button" id="dissociate-button-<%= pref.tea.id %>" value="<%= pref.tea.id %>">Dissociate</button>
+        <button class="edit-button" id="edit-button-<%= pref.id %>" value="<%= pref.id %>">Edit</button>
+        <button class="dissociate-button" id="dissociate-button-<%= pref.id %>" value="<%= pref.id %>">Dissociate</button>
       </td>
     </tr>
     <% end %>
