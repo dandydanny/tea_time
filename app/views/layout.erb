@@ -24,7 +24,8 @@
 <body>
   <div class="nav">
     <div class="logo"><a href="/dashboard">TeaTime</a></div>
-    <div class="user-tools"><a href="/logout">LOG OUT</a></div>
+    <div class="user-tools"><a href="/about">About</a>
+    <% if current_user %><a href="/logout">Log Out</a><% end %></div>
   </div>
   <%= yield %>
   <div class="footer">

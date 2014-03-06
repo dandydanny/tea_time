@@ -15,7 +15,7 @@ post '/' do
   # @user = User.find_by_email(params[:email])
   if @user
     session[:user_id] = @user.id
-    redirect('/user/' + @user.id.to_s)
+    redirect('/dashboard')
   else
     @error = "Unable to login. Please check your username / password."
     erb :index
@@ -33,5 +33,6 @@ get '/user/:user_id' do
 end
 
 get '/dashboard' do
+  @teas = Tea.all
   erb :dashboard
 end

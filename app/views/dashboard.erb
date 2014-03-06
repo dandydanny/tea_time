@@ -1,5 +1,47 @@
 <div class="container">
   <h1>Hello <%= current_user.name %></h1>
-  <p>Discover and keep track of teas you like.</p>
+  <h2>Welcome back.</h2>
+
+  <!-- Create teas -->
+
+  <p>Tell us about that new tea you've tried:</p>
+  <form class="login-forms" id="login-form" action="/" method="POST">
+    <input type="text" name="tea-name" placeholder="Tea Name" class="input-fields" id="newtea-name">
+    <input type="text" name="notes" placeholder="Your Thoughts" class="input-fields" id="newtea-thoughts">
+    <button type="submit" name="associate" id="login-button">Add & Associate</button>
+  </form>
+  <button name="add-more" id="add-more-button">Add More</button>
+
+  <!-- Associate (read teas, update / create join table records) -->
+
+  <p>Try these teas that others have enjoyed (and leave comments):</p>
+    <form class="login-forms" id="login-form" action="/" method="POST">
+    <select>
+      <% @teas.each do |tea| %>
+      <option value="<%= tea.name %>"><%= tea.name %></option>
+      <% end %>
+    </select>
+    <input type="text" name="notes" placeholder="Your Thoughts" class="input-fields" id="newtea-thoughts">
+    <button type="submit" name="buttons" id="login-button">Associate</button>
+  </form>
+
+  <!-- Read user/tea associations -->
+
+  <p>Teas you've tried:</p>
+
+  <table>
+    <tr>
+      <td>Tea Name</td>
+      <td>Thoughts</td>
+      <td></td>
+    </tr>
+    <% current_user.preferences.each do |pref| %>
+    <tr>
+      <td class="tea-name"><div class="table-cell-link"><a href="/tea/<%= pref.tea.id %>"><%= pref.tea.name %></a><div></td>
+      <td class="tea-thoughts"><%= pref.opinion %></td>
+      <td><button>Dissociate</button></td>
+    </tr>
+    <% end %>
+  </table>
 
 </div>
