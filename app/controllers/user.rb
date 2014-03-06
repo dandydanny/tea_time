@@ -27,11 +27,6 @@ get '/logout' do
   redirect('/')
 end
 
-get '/user/:user_id' do
-  params[:user_id]
-  nil
-end
-
 get '/dashboard' do
   if current_user
     @teas = Tea.all
@@ -40,4 +35,10 @@ get '/dashboard' do
     @error = "Please login first."
     erb :index
   end
+end
+
+get '/user/:user_id' do
+  @user = User.find(params[:user_id])
+  p @user
+  erb :user
 end

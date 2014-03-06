@@ -1,0 +1,8 @@
+<div class="container">
+  <h1><%= @user.name %></h1>
+  <h2>This person tried the following teas:</h2>
+  <% @user.preferences.each do |pref| %>
+  <p><a href="/tea/<%= pref.tea.id%>"><%= pref.tea.name %></a> - <%= pref.opinion %></p>
+  <% end %>
+
+</div>

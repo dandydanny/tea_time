@@ -25,3 +25,8 @@ end
 post '/dissociate' do
   current_user.preferences.find(params[:pref_id]).destroy
 end
+
+get '/tea/:tea_id' do
+  @tea = Tea.find(params[:tea_id])
+  erb :tea
+end
