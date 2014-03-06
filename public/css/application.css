@@ -1,0 +1,106 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  color: white;
+}
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+
+th {
+  text-align: left;
+}
+
+.footer {
+  margin: 20px auto;
+  width: 600px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 100;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+}
+
+p {
+  font-size: 1em;
+  font-weight: 100;
+}
+
+a {
+  color: orange;
+  text-decoration: none;
+}
+
+a:hover {
+  color: cyan;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 0 2em;
+
+  font-size: 1em;
+  font-weight: 100;
+  color: white;
+}
+
+button:hover {
+  background-color: orange;
+  color: black;
+}
+
+.input-fields {
+  background-color: transparent;
+  border: 1px solid white;
+
+  font-size: 1em;
+  font-weight: 100;
+  color: white;
+}
+
+.error {
+  font-size: 1em;
+  font-weight: 100;
+  color: red;
+}
+
+.nav {
+  position: relative;
+  top: 0;
+  background-color: rgba(255,255,255,0.1);
+  height: 1em;
+  padding: 1em;
+  font-size: 1em;
+  font-weight: 100;
+  color: white;
+}
+
+.nav .logo {
+  /*background-color: pink;*/
+  float: left;
+  line-height: 1em;
+}
+
+.nav .user-tools {
+  /*background-color: yellow;*/
+  float: right;
+  line-height: 1em;
+}
+
+/*
+available font weights:
+100,100italic,300,300italic,400,400italic,
+500,500italic,700,700italic,900,900italic
+*/

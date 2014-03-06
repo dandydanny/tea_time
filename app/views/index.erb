@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>TeaTime</h1>
+  <h2>Discover and keep track of teas you like.</h2>
+
+  <p>Login:</p>
+  <div class="error"><%= @error %></div>
+  <form class="login-forms" id="login-form" action="/" method="POST">
+    <input type="text" name="email" placeholder="Email" class="input-fields" id="login-email"><br>
+    <input type="password" name="password" placeholder="Password" class="input-fields" id="login-email"><br>
+    <button type="submit" name="buttons" id="login-button">Login</button>
+  </form>
+
+  <p>Sign up:</p>
+  <form class="signup-forms" id="signup-form" action="/signup" method="POST">
+    <input type="text" name="name" placeholder="Name" class="input-fields" id="signup-name"><br>
+    <input type="text" name="email" placeholder="Email" class="input-fields" id="signup-email"><br>
+    <input type="password" name="password" placeholder="Password" class="input-fields" id="signup-email"><br>
+    <button type="submit" name="buttons" id="signup-button">Signup</button>
+  </form>
+
+</div>
