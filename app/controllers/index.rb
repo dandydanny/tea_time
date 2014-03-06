@@ -6,3 +6,7 @@ end
 get '/about' do
   erb :about
 end
+
+post '/dissociate' do
+  current_user.preferences.find_by(tea_id: params[:tea_id]).destroy
+end
