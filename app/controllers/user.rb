@@ -5,7 +5,7 @@ post'/signup' do
   @user.email = params[:email]
   @user.save!
   session[:user_id] = @user.id
-  redirect('/user/' + @user.id.to_s)
+  redirect('/dashboard')
 end
 
 post '/' do
