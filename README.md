@@ -8,13 +8,15 @@ Live Demo: http://dannyteatime.herokuapp.com
 * Username: guest
 * Password: guest
 
-CRUD App / Active Record practice.
+Technical Information:
+* A CRUD App / Active Record practice
+* Built on a modified sinatra skeleton inherited from my Dev Bootcamp days.
+* Includes local `jQuery` and `jQuery` UI library.
 
-Includes local `jQuery` and `jQuery` UI library.
-
+Deploy and Run:
 After cloning to local store, run these commands in terminal to setup:
-`bundle update`
-`rake db:reset`
-`shotgun`
+1. `bundle update`
+2. `rake db:reset`
+3. `shotgun`
 
-Built on a modified sinatra skeleton inherited from my Dev Bootcamp days.
+
