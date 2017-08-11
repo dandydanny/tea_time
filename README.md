@@ -5,8 +5,8 @@
 So many teas, so little time! Here's a tea drinker's logging app. Keep tracks of the teas you like, try teas others liked and share your thoughts.
 
 Live Demo: http://dannyteatime.herokuapp.com
-Username: guest
-Password: guest
+* Username: guest
+* Password: guest
 
 CRUD App / Active Record practice.
 
