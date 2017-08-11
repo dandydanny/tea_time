@@ -1,6 +1,6 @@
 # TeaTime
 
-![Teatime Screenshot](tea_time/teatime_screenshot.png "Teatime screenshot")
+![Teatime Screenshot](https://raw.githubusercontent.com/dandydanny/tea_time/master/teatime_screenshot.png "Teatime screenshot")
 
 Deployment: http://dannyteatime.herokuapp.com
 
